@@ -1,6 +1,5 @@
-###Roomba Coding Challenge
-##By Alyssa Hooper
-#Created with React
+#Roomba Coding Challenge
+Created with React by Alyssa Hooper
 
 ### `yarn start`
 
