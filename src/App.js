@@ -1,7 +1,26 @@
-import React, {useCallback} from 'react'
+import React, {
+  useCallback,
+ } from 'react'
 import {useDropzone} from 'react-dropzone'
 
+const style = {
+  flex: 1,
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  padding: '30px',
+  borderWidth: 1,
+  borderRadius: 1,
+  borderColor: '#bdbdbd',
+  borderStyle: 'dashed',
+  backgroundColor: '#eeeeee',
+  color: '#bdbdbd',
+  outline: 'none',
+  transition: 'border .24s ease-in-out'
+};
+
 function App() {
+
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.forEach((file) => {
       const reader = new FileReader()
@@ -9,9 +28,7 @@ function App() {
       reader.onabort = () => console.log('file reading was aborted')
       reader.onerror = () => console.log('file reading has failed')
       reader.onload = () => {
-      // Do whatever you want with the file contents
-        const binaryStr = reader.result
-        console.log(binaryStr)
+       //
       }
       reader.readAsArrayBuffer(file)
     })
@@ -20,9 +37,9 @@ function App() {
   const {getRootProps, getInputProps} = useDropzone({onDrop})
 
   return (
-    <div {...getRootProps()}>
+    <div {...getRootProps({style})}>
       <input {...getInputProps()} />
-      <p>Drag 'n' drop some files here, or click to select files</p>
+      <p>Drag files here, or click to browse</p>
     </div>
   )
 }
