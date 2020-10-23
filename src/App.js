@@ -1,22 +1,22 @@
 import React, {
-  useCallback,
- } from 'react'
+  useCallback } from 'react'
 import {useDropzone} from 'react-dropzone'
 
 const style = {
+  margin: '10%',
   flex: 1,
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   padding: '30px',
   borderWidth: 1,
-  borderRadius: 1,
+  borderRadius: '20px',
   borderColor: '#bdbdbd',
   borderStyle: 'dashed',
   backgroundColor: '#eeeeee',
   color: '#bdbdbd',
   outline: 'none',
-  transition: 'border .24s ease-in-out'
+  transition: 'border .24s ease-in-out',
 };
 
 function App() {
