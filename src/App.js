@@ -28,9 +28,10 @@ function App() {
       reader.onabort = () => console.log('file reading was aborted')
       reader.onerror = () => console.log('file reading has failed')
       reader.onload = () => {
-       //
+        const json = JSON.parse(reader.result)
+        console.log(json)
       }
-      reader.readAsArrayBuffer(file)
+      reader.readAsText(file)
     })
 
   }, [])
