@@ -20,7 +20,7 @@ const style = {
 };
 
 function App() {
-
+ //accepts files
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.forEach((file) => {
       const reader = new FileReader()
@@ -30,45 +30,47 @@ function App() {
       reader.onload  = () => {
         const json = JSON.parse(reader.result)
         console.log(json)
-
+        //takes file and translates
         const roombaRun = (json) => {
+          let roomDimensions        = json.roomDimensions;
           let initialRoombaLocation = json.initialRoombaLocation;
           let dirtLocations         = json.dirtLocations;
           let drivingInstructions   = json.drivingInstructions;
-          let x                     = json.roomDimensions[0];
-          let y                     = json.roomDimensions[1];
-          let i                     = 0;
 
-          for (i = initialRoombaLocation; i < drivingInstructions.length; i++) {
-
-
+          //runs roomba using directions within matrix core
+          for (let i = 0; i < drivingInstructions.length; i++) {
             let count                   = 0;
-            let wallHitCount            = 0;
-            let wallHit                 = 'placeholder';
-            let roombaCurrentLocation   = 'x,y placeholder';
+            let wallHit                 = null;
+            let roombaCurrentLocation   = null;
+            let x                       = null;
+            let y                       = null;
 
-            if (dirtLocations) {
+            //establishes matrix boundaries and adds them to wall hit count
+            if (x === 0 || y === 0) {
+              wallHit++;
+            };
+
+            //updates count for dirt locations when roomba arrives
+            if (x && y === dirtLocations) {
               dirtLocations++;
             }
 
-            if (wallHit) {
-              wallHitCount++;
-            }
-
-            switch(json.drivingInstructions) {
+            //drives roomba
+            switch(drivingInstructions) {
               case 'N':
-                y -= 1
+                y++;
               break;
               case 'S':
-                y += 1
+                y--;
               break;
               case 'E':
-                x += 1
+                x++;
               break;
               case 'W':
-                x -= 1
+                x--;
               break;
               default:
+              return x & y;
             };
         }
 
