@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 import RoombaClean from './Roomba'
 
@@ -19,24 +19,16 @@ const style = {
   transition: 'border .24s ease-in-out',
 };
 
-function FileUploader() {
-
-  const [state, setState] = useState("");
+function FileUploader({ productState, setProductState }) {
 
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.forEach((file) => {
       const reader = new FileReader()
-
-      reader.onabort = () => console.log('file reading was aborted')
-      reader.onerror = () => console.log('file reading has failed')
       reader.onload  = () => {
         const inputJson =
           JSON.parse(reader.result)
-
-        console.log(inputJson)
-        setState(inputJson);
-      }
-
+           setProductState(inputJson);
+        }
       reader.readAsText(file)
     })
 
@@ -45,7 +37,7 @@ function FileUploader() {
 
   return (
     <div {...getRootProps({style})}>
-      <input {...getInputProps()} />
+      <input {...getInputProps()} value={productState}/>
       <p>Drag files here, or click to browse</p>
     </div>
   )

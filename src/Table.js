@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Table() {
+function Table({ productState }) {
   return (
     <div>
       <table className="table">
@@ -15,6 +15,7 @@ function Table() {
         </thead>
         <tbody>
             {
+              //skfjksfj i am a placeholder
             }
         </tbody>
       </table>
