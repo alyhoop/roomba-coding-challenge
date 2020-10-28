@@ -14,15 +14,9 @@ function Table({ productState }) {
         </tr>
         </thead>
         <tbody>
-            {
-              //skfjksfj i am a placeholder
-            }
+      
         </tbody>
       </table>
-      <h4>Final Position: {}</h4>
-      <h4>Total Dirt Collected: {}</h4>
-      <h4>Total Distance Traveled: {}</h4>
-      <h4>Total Walls Hit: {}</h4>
     </div>
   )
 }

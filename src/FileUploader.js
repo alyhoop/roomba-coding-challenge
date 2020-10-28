@@ -20,28 +20,30 @@ const style = {
 };
 
 function FileUploader({ productState, setProductState }) {
-
   const onDrop = useCallback((acceptedFiles) => {
-    acceptedFiles.forEach((file) => {
-      const reader = new FileReader()
-      reader.onload  = () => {
-        const inputJson =
-          JSON.parse(reader.result)
-           setProductState(inputJson);
-        }
-      reader.readAsText(file)
-    })
+    const file = acceptedFiles[0];
 
-  }, [])
-  const {getRootProps, getInputProps} = useDropzone({onDrop})
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      // JSON parse the result from read as text
+      let parsed = JSON.parse(reader.result);
+      // Call the setProductState function from Ancestor component
+      setProductState(parsed);
+    };
+
+    // Read the file, triggering the onload event handler
+    reader.readAsText(file);
+  }, []);
+
+  const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
   return (
-    <div {...getRootProps({style})}>
-      <input {...getInputProps()} value={productState}/>
+    <div {...getRootProps({ style })}>
+      <input {...getInputProps()} value={productState} />
       <p>Drag files here, or click to browse</p>
     </div>
-  )
+  );
 }
-
 
 export default FileUploader;

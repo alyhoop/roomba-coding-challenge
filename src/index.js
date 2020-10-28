@@ -4,6 +4,7 @@ import './index.css';
 import FileUploader from './FileUploader';
 import Table from './Table';
 import * as serviceWorker from './serviceWorker';
+import Blank from './';
 
 ReactDOM.render(
   <React.StrictMode>

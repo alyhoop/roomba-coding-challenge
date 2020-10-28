@@ -12,8 +12,8 @@ th {
 
 .table {
   border: 1px solid grey;
-  margin: 1%;
+  width: calc(100% / 3);
+  margin: 0 auto;
   padding: 2%;
   display: flex;
-  justify-content: center;
 }
