@@ -1,15 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import FileUploader from './FileUploader';
-import Table from './Table';
+import Ancestor from './Ancestor'
 import * as serviceWorker from './serviceWorker';
-import Blank from './';
 
 ReactDOM.render(
   <React.StrictMode>
-    <FileUploader />
-    <Table />
+    <Ancestor />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
-import RoombaClean from './Roomba'
+//import RoombaClean from './Roomba'
+import PropTypes from 'prop-types'
 
 const style = {
   margin: '10% 30% 10% 30%',
@@ -17,6 +18,11 @@ const style = {
   color: '#bdbdbd',
   outline: 'none',
   transition: 'border .24s ease-in-out',
+};
+
+FileUploader.propTypes = {
+  productState: PropTypes.object,
+  setProductState: PropTypes.object
 };
 
 function FileUploader({ productState, setProductState }) {
