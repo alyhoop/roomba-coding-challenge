@@ -1,17 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Ancestor from './Ancestor'
-import * as serviceWorker from './serviceWorker';
+import FileUploader from './FileUploader'
+//import Table from './Table'
+import Title from './Title'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Ancestor />
+    <Title />
+    <FileUploader />
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
